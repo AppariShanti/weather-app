@@ -5,6 +5,7 @@ from configparser import ConfigParser
 import argparse
 import json
 import sys
+import pprint as pp
 from urllib import error, parse, request
 
 PADDING=20
@@ -70,8 +71,8 @@ def display_weather_info(weather_data, imperial=False):
     city=weather_data["name"]
     weather_description=weather_data["weather"][0]["description"]
     temperature=weather_data["main"]["temp"]
-    print(f"{city:^PADDING}",end="")
-    print(f"\t{weather_description.capitalize():^PADDING}",end=" ")
+    print(f"{city:^{PADDING}}",end="")
+    print(f"\t{weather_description.capitalize():^{PADDING}}",end=" ")
     print(f"({temperature}°{'F' if imperial else 'C'})")
 
 
